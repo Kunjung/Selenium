@@ -16,6 +16,7 @@ search_url = f"https://www.google.com/search?q={search_string}"
 print(f"search_url: {search_url}")
 
 driver.get(search_url)
+# waiting here to make sure that our browser has loaded and query results have been found
 time.sleep(5)
 
 titles = driver.find_elements_by_xpath("//div[@class='yuRUbf']//h3[@class='LC20lb MBeuO DKV0Md']")
@@ -70,5 +71,4 @@ print(df.head(10))
 
 df.to_csv(f"top_5_results_for_{search_string}.csv", index=False)
 
-time.sleep(100)
 driver.quit()
